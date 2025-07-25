@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ FRANNY MOBILE NOTARY - Frances M. Stemkowski Goldman</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #ff69b4;
+            --hot-pink: #ff1493;
+            --light-pink: #ffb6c1;
+            --pale-pink: #ffc0cb;
+            --white: #ffffff;
+            --gold: #ffd700;
+            --dark-pink: #c71585;
+            --text-dark: #4a4a4a;
+            --gradient-pink: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--pale-pink);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--hot-pink);
+            border-radius: 5px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(255, 20, 147, 0.2);
+            z-index: 1000;
+            border-bottom: 3px solid var(--pink);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--hot-pink);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .logo::before {
+            content: "⚖️";
+            font-size: 2.5rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg);
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.1) rotate(5deg);
+                filter: brightness(1.5);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a::after {
+            content: "💖";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hot-pink);
+        }
+
+        .nav-links a:hover::after {
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: white;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: float-sparkle 10s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float-sparkle {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            font-family: 'Georgia', serif;
+        }
+
+        .hero .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: white;
+            color: var(--hot-pink);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            border: 3px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: var(--gold);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 3px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: var(--hot-pink);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, var(--pale-pink), white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--hot-pink);
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 3px solid var(--pale-pink);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--light-pink) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.2);
+            border-color: var(--hot-pink);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-card h3 {
+            color: var(--hot-pink);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .pricing-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--pale-pink) 0%, var(--light-pink) 100%);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.2);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .price-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .price-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            color: var(--hot-pink);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, white, var(--pale-pink));
+        }
+
+        .upload-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.15);
+            border: 3px solid var(--pink);
+        }
+
+        .upload-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--hot-pink);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-pink);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--hot-pink);
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.2);
+        }
+
+        .file-upload-area {
+            border: 3px dashed var(--light-pink);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: var(--pale-pink);
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--hot-pink);
+            background: white;
+        }
+
+        .file-upload-area input[type="file"] {
+            display: none;
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--gradient-pink);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--gradient-pink);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-pink);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: var(--gradient-pink);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 2rem;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">AZ FRANNY</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="sparkles">
+            <div class="sparkle" style="width: 20px; height: 20px; left: 10%; animation-delay: 0s;"></div>
+            <div class="sparkle" style="width: 15px; height: 15px; left: 30%; animation-delay: 2s;"></div>
+            <div class="sparkle" style="width: 25px; height: 25px; left: 50%; animation-delay: 4s;"></div>
+            <div class="sparkle" style="width: 18px; height: 18px; left: 70%; animation-delay: 6s;"></div>
+            <div class="sparkle" style="width: 22px; height: 22px; left: 90%; animation-delay: 8s;"></div>
+        </div>
+        <div class="hero-content">
+            <h1>AZ FRANNY MOBILE NOTARY</h1>
+            <p class="subtitle">Frances M. Stemkowski Goldman</p>
+            <p>Your Glamorous & Professional Mobile Notary Service<br>
+            Bringing Legal Excellence to Your Doorstep with Style!</p>
+            <div class="cta-buttons">
+                <a href="tel:6028041293" class="cta-button">📞 Call (602) 804-1293</a>
+                <a href="#upload" class="cta-button secondary">📄 Upload Documents</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Fabulous Services</h2>
+            <p class="section-subtitle">"What, like it's hard?" - Getting documents notarized has never been easier!</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">📜</div>
+                    <h3>Document Notarization</h3>
+                    <p>Professional notarization for all your important documents - affidavits, acknowledgments, and more! All done with precision and a touch of pink perfection.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💼</div>
+                    <h3>Business Documents</h3>
+                    <p>From vendor contracts to lease agreements, I'll handle your business paperwork with the professionalism of a Harvard Law graduate!</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏥</div>
+                    <h3>Healthcare Forms</h3>
+                    <p>Insurance forms, medical documents, and health records - notarized with care and complete confidentiality.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🚗</div>
+                    <h3>Mobile Service</h3>
+                    <p>I come to YOU! Throughout Maricopa County, bringing notary services in style. No need to leave your home or office!</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💰</div>
+                    <h3>Financial Documents</h3>
+                    <p>Loan papers, financial forms, and legal documents handled with expertise and attention to every detail.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🖨️</div>
+                    <h3>Print & Notarize</h3>
+                    <p>Need documents printed? I can bring pre-filled templates for common forms and print them for you!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Fair & Fabulous Pricing</h2>
+            <p class="section-subtitle">Transparent pricing that's as clear as my pink nail polish!</p>
+            <div class="pricing-container">
+                <div class="pricing-grid">
+                    <div class="price-item">
+                        <h3>Base Service</h3>
+                        <div class="price-amount">$40</div>
+                        <p>Includes travel within 10 miles & first notarization</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>Per Notarization</h3>
+                        <div class="price-amount">$10</div>
+                        <p>Each additional notarial act (AZ State maximum)</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>Travel Fee</h3>
+                        <div class="price-amount">65.5¢/mile</div>
+                        <p>Round trip beyond 10 miles from base</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>Printing Service</h3>
+                        <div class="price-amount">$5-15</div>
+                        <p>Document printing (varies by length)</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>After Hours</h3>
+                        <div class="price-amount">+$25</div>
+                        <p>Evenings, weekends & holidays</p>
+                    </div>
+                    <div class="price-item">
+                        <h3>Rush Service</h3>
+                        <div class="price-amount">+$30</div>
+                        <p>Same-day urgent appointments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="upload-section">
+        <div class="container">
+            <h2 class="section-title">Upload Your Documents</h2>
+            <p class="section-subtitle">Send me your documents securely - it's like, so easy!</p>
+            <div class="upload-container">
+                <form class="upload-form" id="documentForm">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Elle Woods">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="elle@harvard.edu">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(602) 555-0123">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service...</option>
+                            <option value="acknowledgment">Acknowledgment</option>
+                            <option value="jurat">Jurat</option>
+                            <option value="certified-copy">Certified Copy</option>
+                            <option value="oath">Oath/Affirmation</option>
+                            <option value="multiple">Multiple Services</option>
+                            <option value="not-sure">Not Sure - Need Guidance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Preferred Location</label>
+                        <input type="text" id="location" name="location" placeholder="Your address or preferred meeting spot">
+                    </div>
+                    <div class="form-group">
+                        <label for="datetime">Preferred Date & Time</label>
+                        <input type="datetime-local" id="datetime" name="datetime">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Details</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell me about your notary needs..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Documents (Optional)</label>
+                        <div class="file-upload-area" onclick="document.getElementById('file-input').click();">
+                            <div class="upload-icon">📁</div>
+                            <p><strong>Click to upload or drag & drop</strong></p>
+                            <p>Supports: PDF, DOC, DOCX, JPG, PNG<br>
+                            From: Google Drive, Dropbox, OneDrive, or your computer</p>
+                            <input type="file" id="file-input" name="documents" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                        </div>
+                        <p style="margin-top: 1rem; color: var(--hot-pink); text-align: center;">
+                            <em>Your documents are kept completely confidential!</em>
+                        </p>
+                    </div>
+                    <button type="submit" class="submit-button">💕 Submit Request</button>
+                </form>
+                <div class="success-message" id="successMessage">
+                    <h3>✨ Request Sent Successfully! ✨</h3>
+                    <p>I'll review your documents and contact you within 1 hour during business hours!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect!</h2>
+            <p class="section-subtitle">Available 7 days a week for your notary needs</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📱</i>
+                    <h3>Call or Text</h3>
+                    <p><a href="tel:6028041293" style="color: white; text-decoration: none;">(602) 804-1293</a></p>
+                </div>
+                <div class="contact-item">
+                    <i>📧</i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:azfrannymobilenotary@gmail.com" style="color: white; text-decoration: none;">azfrannymobilenotary@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i>📍</i>
+                    <h3>Service Area</h3>
+                    <p>All of Maricopa County<br>Phoenix, Scottsdale, Tempe & Beyond!</p>
+                </div>
+            </div>
+            <div class="cta-buttons" style="margin-top: 2rem;">
+                <a href="tel:6028041293" class="cta-button">Schedule Now!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AZ FRANNY MOBILE NOTARY - Frances M. Stemkowski Goldman</p>
+        <div class="footer-content">
+            <span>Licensed by Arizona Secretary of State</span>
+            <span>💕</span>
+            <span>18+ Years of Excellence</span>
+        </div>
+    </footer>
+
+    <script>
+        // Generate sparkles
+        function createSparkle() {
+            const sparklesContainer = document.querySelector('.sparkles');
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.width = Math.random() * 20 + 10 + 'px';
+            sparkle.style.height = sparkle.style.width;
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 10 + 's';
+            sparkle.style.animationDuration = Math.random() * 10 + 10 + 's';
+            sparklesContainer.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 20000);
+        }
+
+        setInterval(createSparkle, 2000);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting)
