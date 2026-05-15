@@ -1,0 +1,27 @@
+{
+  "name": "ShiftWise — Nurse Assistant",
+  "short_name": "ShiftWise",
+  "description": "Voice-first nursing workflow assistant for 12-hour shifts — SBAR, timeline, game plan, and clinical reference.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#020617",
+  "theme_color": "#0e7490",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "productivity"],
+  "screenshots": [],
+  "prefer_related_applications": false
+}
